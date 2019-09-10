@@ -91,36 +91,36 @@ body {
 
 h1 {
   font-size: calc(var(--ms6-ratio) * 1rem);
-  line-height: calc(var(--ms6-line-height) + (0rem)); }
+  line-height: var(--ms6-line-height); }
 
 h2 {
   font-size: calc(var(--ms5-ratio) * 1rem);
-  line-height: calc(var(--ms5-line-height) + (0rem)); }
+  line-height: var(--ms5-line-height); }
 
 h3 {
   font-size: calc(var(--ms4-ratio) * 1rem);
-  line-height: calc(var(--ms4-line-height) + (0rem)); }
+  line-height: var(--ms4-line-height); }
 
 h4 {
   font-size: calc(var(--ms3-ratio) * 1rem);
-  line-height: calc(var(--ms3-line-height) + (0rem)); }
+  line-height: var(--ms3-line-height); }
 
 h5 {
   font-size: calc(var(--ms2-ratio) * 1rem);
-  line-height: calc(var(--ms2-line-height) + (0rem)); }
+  line-height: var(--ms2-line-height); }
 
 h6 {
   font-size: calc(var(--ms1-ratio) * 1rem);
-  line-height: calc(var(--ms1-line-height) + (0rem)); }
+  line-height: var(--ms1-line-height); }
 
 small {
   font-size: calc(var(--ms-1-ratio) * 1rem);
-  line-height: calc(var(--ms-1-line-height) + (0rem)); }
+  line-height: var(--ms-1-line-height); }
 
 .u-milli {
   font-size: calc(var(--ms-2-ratio) * 1rem);
-  line-height: calc(var(--ms-2-line-height) + (0rem)); }
+  line-height: var(--ms-2-line-height); }
 
 .u-micro {
   font-size: calc(var(--ms-3-ratio) * 1rem);
-  line-height: calc(var(--ms-3-line-height) + (0rem)); }
+  line-height: var(--ms-3-line-height); }

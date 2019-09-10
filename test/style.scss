@@ -1,4 +1,4 @@
-@import "src/fluidms";
+@import "../src/fluidms";
 
 h1 {
     @include fluidms-font-size(
