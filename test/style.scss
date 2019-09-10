@@ -1,0 +1,55 @@
+@import "src/fluidms";
+
+h1 {
+    @include fluidms-font-size(
+        $ms: 6
+    );
+}
+
+h2 {
+    @include fluidms-font-size(
+        $ms: 5
+    );
+}
+
+h3 {
+    @include fluidms-font-size(
+        $ms: 4
+    );
+}
+
+h4 {
+    @include fluidms-font-size(
+        $ms: 3
+    );
+}
+
+h5 {
+    @include fluidms-font-size(
+        $ms: 2
+    );
+}
+
+h6 {
+    @include fluidms-font-size(
+        $ms: 1
+    );
+}
+
+small {
+    @include fluidms-font-size(
+        $ms: -1
+    );
+}
+
+.u-milli {
+    @include fluidms-font-size(
+        $ms: -2
+    );
+}
+
+.u-micro {
+    @include fluidms-font-size(
+        $ms: -3
+    );
+}

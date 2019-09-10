@@ -6,6 +6,10 @@
     "type": "git",
     "url": "git+https://github.com/csshugs/FluidMS.git"
   },
+  "scripts": {
+    "server": "npx http-server test/",
+    "sass:watch": "npx node-sass test/style.scss test/style.css --watch"
+  },
   "keywords": [
     "CSS",
     "Modular Scale",
@@ -18,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/csshugs/FluidMS/issues"
   },
-  "homepage": "https://github.com/csshugs/FluidMS#readme"
+  "homepage": "https://github.com/csshugs/FluidMS#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "node-sass": "^4.12.0"
+  }
 }
