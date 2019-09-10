@@ -1,0 +1,22 @@
+{
+  "name": "fluidms",
+  "version": "0.1.0",
+  "description": "A Modular Scale system for Fluid Typography with custom properties",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csshugs/FluidMS.git"
+  },
+  "keywords": [
+    "CSS",
+    "Modular Scale",
+    "Sass",
+    "Fluid Typography",
+    "Custom properties"
+  ],
+  "author": "Dennis Heibült",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csshugs/FluidMS/issues"
+  },
+  "homepage": "https://github.com/csshugs/FluidMS#readme"
+}
