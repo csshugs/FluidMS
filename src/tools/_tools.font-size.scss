@@ -1,0 +1,38 @@
+// /*------------------------------------*\
+//     #FONT-SIZE
+// \*------------------------------------*/
+
+@mixin fluidms-font-size(
+    $ms: 0,
+    $line-height: auto,
+    $line-height-modifier: 0,
+    $important: false
+) {
+
+    @if ($important == true) {
+        $important: !important;
+    } @else if ($important == false) {
+        $important: null;
+    } @else {
+        @error "`#{$important}` needs to be `true` or `false`.";
+    }
+
+    // Calculate the font-size by using the generated `--ms<n>-ratio`
+    // CSS custom properties at runtime.
+    $_font-size: calc(var(--ms#{$ms}-ratio) * 1rem);
+    font-size: $_font-size $important;
+
+    @if ($line-height == auto) {
+        // Calculate the line-height by using the generated
+        // `--ms<n>-line-height` CSS custom properties at runtime.
+        $_line-height: calc(var(--ms#{$ms}-line-height) + (#{$line-height-modifier * $FLUIDMS-GLOBAL-BASELINE}));
+        line-height: $_line-height $important;
+    } @else {
+        @if (type-of($line-height) == number or $line-height == "inherit" or $line-height == "normal") {
+            line-height: $line-height $important;
+        } @else if ($line-height != "none" and $line-height != false) {
+            @error "`#{$line-height}` is not a valid value for `$line-height`.";
+        }
+    }
+
+}

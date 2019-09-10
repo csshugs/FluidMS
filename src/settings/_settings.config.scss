@@ -1,0 +1,56 @@
+// /*------------------------------------*\
+//     #CONFIG
+// \*------------------------------------*/
+
+// Define all the critical values for fluid typography and modular scale.
+// You can adjust all of these variables by overriding them before importing
+// this file.
+
+// Define your vertical grid. Everything sits on this vertical grid.
+// Must be a `rem` value. Works best with smaller values (i.e. smaller than
+// one third of 1rem).
+$FLUIDMS-GLOBAL-BASELINE: 0.25rem !default;
+
+// Define your optimal line-height (unit-less). The final line-height will be
+// calculated to sit exactly on the vertical grid and may be lower than this
+// defined value.
+$FLUIDMS-GLOBAL-LINE-HEIGHT: 1.5 !default;
+
+// The `min-font-size` value defines the size of the base modular font-size at
+// `min-viewport`. It will not shrink further below that viewport size.
+//
+// `max-font-size` is the maximum font-size at `max-viewport` and it does not
+// grow above that.
+//
+// With `scales`, you determine which increments of the base font-size
+// are available.
+//
+// With `ratio`, all of the other font-sizes are determined, as the scale goes
+// up (and down) incrementally by the amount of that ratio. The `ratio` can be
+// altered at certain breakpoints by creating a nested map with the
+// breakpoint (as `px` value) and a nested `ratio` definition.
+$FLUIDMS-GLOBAL-CONFIG: (
+    min-font-size: 16px,
+    max-font-size: 24px,
+    min-viewport: 480px,
+    max-viewport: 1280px,
+    scales: (
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        -1,
+        -2,
+        -3,
+    ),
+    ratio: 1.1,
+    768px: (
+        ratio: 1.2,
+    ),
+    1280px: (
+        ratio: 1.3,
+    ),
+) !default;

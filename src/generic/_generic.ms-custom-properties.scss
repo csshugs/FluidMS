@@ -1,0 +1,27 @@
+/*------------------------------------*\
+    $MS-CUSTOM-PROPERTIES
+\*------------------------------------*/
+
+/**
+ * Generate the custom properties necessary to calculate the different ratios
+ * at runtime in CSS.
+ */
+:root {
+    @each $scale in map-get($FLUIDMS-GLOBAL-CONFIG, scales) {
+        --ms#{$scale}-ratio:       #{fluidms-pow(map-get($FLUIDMS-GLOBAL-CONFIG, ratio), $scale)};
+        --ms#{$scale}-line-height: #{fluidms-line-height($scale, map-get($FLUIDMS-GLOBAL-CONFIG, ratio))};
+    }
+
+    @each $key, $value in $FLUIDMS-GLOBAL-CONFIG {
+        @if (type-of($key) == number) {
+            @if (unit($key) == "px") {
+                @media screen and (min-width: $key) {
+                    @each $scale in map-get($FLUIDMS-GLOBAL-CONFIG, scales) {
+                        --ms#{$scale}-ratio:       #{fluidms-pow(map-get($value, ratio), $scale)};
+                        --ms#{$scale}-line-height: #{fluidms-line-height($scale, map-get($value, ratio))};
+                    }
+                }
+            }
+        }
+    }
+}

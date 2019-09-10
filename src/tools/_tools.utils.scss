@@ -1,0 +1,39 @@
+// /*------------------------------------*\
+//     #UTILS
+// \*------------------------------------*/
+
+
+
+// Remove the unit of a length.
+//
+// Author: Hugo Giraudel
+// https://css-tricks.com/snippets/sass/strip-unit-function/
+@function fluidms-strip-unit($number) {
+    @if type-of($number) == "number" and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+
+
+// Provide math power function to Sass.
+//
+// Author: Hugo Giraudel
+// https://css-tricks.com/snippets/sass/power-function/
+@function fluidms-pow($number, $exponent) {
+    $value: 1;
+
+    @if $exponent > 0 {
+        @for $i from 1 through $exponent {
+            $value: $value * $number;
+        }
+    } @else if $exponent < 0 {
+        @for $i from 1 through -$exponent {
+            $value: $value / $number;
+        }
+    }
+
+    @return $value;
+}

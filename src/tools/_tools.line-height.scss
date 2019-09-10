@@ -1,0 +1,19 @@
+// /*------------------------------------*\
+//     #LINE-HEIGHT
+// \*------------------------------------*/
+
+// Helper function to calculate a `rem`-unit line-height based on a given
+// font-size scale, the font-size ratio and the `$FLUIDMS-GLOBAL-BASELINE`.
+@function fluidms-line-height($scale, $ratio) {
+    // Calculate the default line-height (in `rem`).
+    $_default-line-height: (fluidms-pow($ratio, $scale)) * $FLUIDMS-GLOBAL-LINE-HEIGHT;
+    // Get the “offset” of the vertical grid.
+    $_remainder: $_default-line-height;
+    @while $_remainder >= fluidms-strip-unit($FLUIDMS-GLOBAL-BASELINE) {
+        $_remainder: $_remainder - $FLUIDMS-GLOBAL-BASELINE;
+    }
+    // Subtract the “offset” so we stay in the exact vertical grid.
+    $_optimal-line-height: $_default-line-height - $_remainder;
+
+    @return $_optimal-line-height;
+}
