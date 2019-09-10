@@ -34,6 +34,13 @@ $FLUIDMS-GLOBAL-CONFIG: (
     max-font-size: 24px,
     min-viewport: 480px,
     max-viewport: 1280px,
+    ratio: 1.1,
+    768px: (
+        ratio: 1.2,
+    ),
+    1280px: (
+        ratio: 1.3,
+    ),
     scales: (
         6,
         5,
@@ -45,12 +52,5 @@ $FLUIDMS-GLOBAL-CONFIG: (
         -1,
         -2,
         -3,
-    ),
-    ratio: 1.1,
-    768px: (
-        ratio: 1.2,
-    ),
-    1280px: (
-        ratio: 1.3,
     ),
 ) !default;
