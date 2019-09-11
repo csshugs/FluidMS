@@ -166,7 +166,7 @@ FluidMS provides a baseline grid out of the box. That means that every line-heig
 $FLUIDMS-GLOBAL-BASELINE: 0.25rem !default;
 ```
 
-`$FLUIDMS-GLOBAL-BASELINE` needs to be defined with a `rem` unit. It has been proven to be a good idea to define a value between `0.1rem` — `0.333rem`.
+`$FLUIDMS-GLOBAL-BASELINE` needs to be defined with a `rem` unit. It has been proven to be a good idea to define a value between `0.1rem` – `0.333rem`.
 
 ### Changing the global line-height
 
