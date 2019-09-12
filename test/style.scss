@@ -24,39 +24,41 @@ html {
     );
 }
 
+$h1-font-size: ms(6) !default;
+
 h1 {
     @include fluidms-font-size(
-        $ms: 6
+        $font-size: ms(6)
     );
 }
 
 h2 {
     @include fluidms-font-size(
-        $ms: 5
+        $font-size: ms(5)
     );
 }
 
 h3 {
     @include fluidms-font-size(
-        $ms: 4
+        $font-size: ms(4)
     );
 }
 
 h4 {
     @include fluidms-font-size(
-        $ms: 3
+        $font-size: ms(3)
     );
 }
 
 h5 {
     @include fluidms-font-size(
-        $ms: 2
+        $font-size: ms(2)
     );
 }
 
 h6 {
     @include fluidms-font-size(
-        $ms: 1
+        $font-size: ms(1)
     );
 }
 
@@ -70,18 +72,18 @@ h6 {
 
 .u-small {
     @include fluidms-font-size(
-        $ms: -1
+        $font-size: ms(-1)
     );
 }
 
 .u-milli {
     @include fluidms-font-size(
-        $ms: -2
+        $font-size: ms(-2)
     );
 }
 
 .u-micro {
     @include fluidms-font-size(
-        $ms: -3
+        $font-size: ms(-3)
     );
 }

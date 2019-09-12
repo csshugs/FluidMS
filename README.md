@@ -30,6 +30,7 @@ If you are following an [ITCSS](https://csswizardry.com/2018/11/itcss-and-skills
 
 // Tools
 @import "<path-to-fluidms-node-package>/src/tools/tools.utils";
+@import "<path-to-fluidms-node-package>/src/tools/tools.ms";
 @import "<path-to-fluidms-node-package>/src/tools/tools.font-size";
 @import "<path-to-fluidms-node-package>/src/tools/tools.line-height";
 
@@ -59,38 +60,54 @@ To use FluidMS, you only need to apply the `fluidms-font-size()` mixin to the el
 }
 ```
 
-Just calling the mixin without any arguments assigns the base font-size to the element along with a line-height that is calculated to automatically fit into the defined vertical grid.
+Just calling the mixin without any arguments assigns the base font-size to the element along with a line-height that is calculated to automatically fit into the defined baseline grid.
 
 Let’s see how we can affect the generated font-size of an element:
 
 ```scss
 .larger-text {
     @include fluidms-font-size(
-        $ms: 1
+        $font-size: ms(1)
     );
 }
 ```
 
-Here we are calling the mixin with altering the `$ms` parameter (`$ms` stands for “Modular Scale”). What we are doing here is to say: “Assign a font-size here, but set the font-size to the next bigger scale entity than our base font-size (hence **1**).” We could also set the font-size to the next bigger scale entity by passing `$ms: 2` and so on.
+Here we are calling the mixin with altering the `$font-size` parameter. For that, we are using the `ms()` function (`ms` stands for “Modular Scale”). What we are doing here is to say: “Assign a font-size here, but set the font-size to the next bigger scale entity than our base font-size (hence **1**).” We could also set the font-size to the next bigger scale entity by passing `$font-size: ms(2)` and so on.
 
 Negative entites are also possible:
 
 ```scss
 .smaller-text {
     @include fluidms-font-size(
-        $ms: -2
+        $font-size: ms(-2)
     );
 }
 ```
 
+Read more about Modular Scale [here](https://alistapart.com/article/more-meaningful-typography/).
+
+#### Custom font-size
+
+Instead of relying on the modular scale for a specific font-size and using the `ms()` function for the `$font-size` parameter, you can also pass a custom font-size:
+
+```scss
+.custom-font-size {
+    @include fluidms-font-size(
+        $font-size: 38px
+    );
+}
+```
+
+Any value that is [valid for the native CSS `font-size` property](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#Values) is also valid here.
+
 #### Changing the line-height
 
-By default, the line height is automatically calculated so that it fits onto the defined baseline grid. However, if you need to manually assign a custom line-height to an element, you can do so with an additional (optional) argument:
+By default, the line height is automatically calculated so that it fits onto the defined baseline grid. However, if you need to manually assign a custom line-height to an element, you can do so with an additional argument:
 
 ```scss
 .custom-line-height {
     @include fluidms-font-size(
-        $ms: 3,
+        $font-size: ms(3),
         $line-height: 50px
     );
 }
@@ -102,12 +119,12 @@ Possible values for the `$line-height` parameter are:
 * The keyword `inherit`
 * The keyword `normal`
 
-You can also completely omit the output of a line-height declaration:
+You can also completely omit the output of a line-height declaration by setting its value to `false`:
 
 ```scss
 .no-line-height {
     @include fluidms-font-size(
-        $ms: 3,
+        $font-size: ms(3),
         $line-height: false
     );
 }
@@ -117,7 +134,7 @@ You can also completely omit the output of a line-height declaration:
 
 ##### Increasing/Decreasing the line-height
 
-There may be situations where the generated line-height is not quite what you need, but you still want to benefit from the automatic vertical grid adaptation. So instead of assigning a custom line-height and risking loosing the anchoring to the baseline grid, you can tweak the line-height upwards or downwards and still be on the baseline grid:
+There may be situations where the generated line-height is not quite what you need, but you still want to benefit from the automatic baseline grid adaptation. So instead of assigning a custom line-height and risking loosing the anchoring to the baseline grid, you can tweak the line-height upwards or downwards and still be on the baseline grid:
 
 ```scss
 .slightly-smaller-line-height {
@@ -146,7 +163,7 @@ Anyhow, FluidMS has got you covered for these situations:
 ```scss
 .i-need-important {
     @include fluidms-font-size(
-        $ms: 1,
+        $font-size: ms(1),
         $important: true
     );
 }
@@ -209,7 +226,7 @@ Below a viewport of `480px`, the font-size will be `16px` and not smaller. Above
 ```scss
 .larger-text {
     @include fluidms-font-size(
-        $ms: 1
+        $font-size: ms(1)
     );
 }
 ```
@@ -230,7 +247,7 @@ $FLUIDMS-CONFIG: (
 
 With a ratio of `1.1`, the font-size of the example above will be `17.6px` (`16px * 1.1`) on screens smaller than `480px`. On screens larger than `1280px`, the font-size will be `26.4px` (`24px * 1.1`).
 
-If we use the mixin with `$ms: 2`, this font-size will be again 1.1x bigger than that one and so on and on.
+If we use the mixin with `$font-size: ms(2)`, this font-size will be again 1.1x bigger than that one and so on and on.
 
 #### Changing the ratio at different breakpoints
 
@@ -280,7 +297,7 @@ $FLUIDMS-CONFIG: (
 ) !default;
 ```
 
-Positive and negative integers are valid here. The numbers we add here basically result in the values we can use in the `fluidms-font-size()` mixin as the `$ms` argument.
+Positive and negative integers are valid here. The numbers we add here basically result in the values we can use in the `ms()` function.
 
 ## Browser Support
 
