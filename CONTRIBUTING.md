@@ -101,3 +101,19 @@ this commit:
 When a pull request is approved, all the commits need to be [squashed](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#_squashing) in a meaningful manner before the pull request is merged. That is, combining those commits that form a complete feature into **one commit**. That doesn’t necessarily mean that all the commits of every pull request should ever result in one single commit! For example, if a pull request provides a new feature but alongside this new feature, a bug was fixed, too, this would result in two sqashed commits: One for the feature and one for the bugfix. The aim of this practice is to produce a sensible fragmentation of commits so we can later automatically create our changelog from these commits.
 
 If you feel unsure about this process, just ping **[@fuhlig](https://github.com/fuhlig)** or **[@csshugs](https://github.com/csshugs)** in the comments of the pull request to request help. We’d love to do the squashing for you!
+
+## Release a new version
+
+The following workflow assumes that there are no redundant commits and evey relevant feature is represented with one commit only.
+
+1. Merge `develop` into `master` via GitHub pull request
+2. Check out `master` branch locally
+3. Run `npm run release`
+4. Check `CHANGELOG.md` and fix content if necessary   
+    4b. If `CHANGELOG.md` needed a manual change, run `git commit -a --amend --no-edit`
+5. Run `git push origin master`
+6. Run `git push --tags`
+7. Run `npm publish`
+8. Check out `develop` branch
+9. Run `git rebase master`
+10. Run `git push origin develop`
