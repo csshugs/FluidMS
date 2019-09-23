@@ -6,30 +6,82 @@
 // You can adjust all of these variables by overriding them before importing
 // this file.
 
-// Define your vertical grid. Everything sits on this vertical grid.
-// Must be a `rem` value. Works best with smaller values (i.e. smaller than
-// one third of 1rem).
+/// Define your baseline grid. Everything sits on this vertical grid. Works best
+/// with smaller values (i.e. smaller than one third of 1rem).
+///
+/// @type `rem` value
+///
+/// @example scss - Sets the size of the baseline grid to `0.2rem`
+///   $FLUIDMS-GLOBAL-BASELINE: 0.2rem !default;
 $FLUIDMS-GLOBAL-BASELINE: 0.25rem !default;
 
-// Define your optimal line-height (unit-less). The final line-height will be
-// calculated to sit exactly on the vertical grid and may be lower than this
-// defined value.
+/// Define your optimal line-height (unit-less). The final line-height will be
+/// calculated to sit exactly on the baseline grid and may be lower than this
+/// defined value.
+///
+/// @type number
+///
+/// @example scss - Sets the global line-height to `1.35`
+///   $FLUIDMS-GLOBAL-LINE-HEIGHT: 1.35 !default
 $FLUIDMS-GLOBAL-LINE-HEIGHT: 1.5 !default;
 
-// The `min-font-size` value defines the size of the base modular font-size at
-// `min-viewport`. It will not shrink further below that viewport size.
-//
-// `max-font-size` is the maximum font-size at `max-viewport` and it does not
-// grow above that.
-//
-// With `scales`, you determine which increments of the base font-size
-// are available.
-//
-// With `ratio`, all of the other font-sizes are determined, as the scale goes
-// up (and down) incrementally by the amount of that ratio. The `ratio` can be
-// altered at certain breakpoints by creating a nested map with the
-// breakpoint (as `px` value) and a nested `ratio` definition.
-$FLUIDMS-GLOBAL-CONFIG: (
+/// Hold all the relevant settings for Fluid Typography.
+///
+/// @prop {length (in `px`)} min-font-size [16px] - Defines the font-size at
+///   `min-viewport`.
+/// @prop {length (in `px`)} max-font-size [24px] - Defines the font-size at the
+///   `max-viewport`.
+/// @prop {length (in `px`)} min-viewport [480px] - Defines the minimum
+///   breakpoint at which the font-size does not decrease any further.
+/// @prop {length (in `px`)} max-viewport [1280px] - Defines the maximum
+///   breakpoint at which the font-size does not increase any further.
+/// @prop {number} ratio [1.1] - Defines the [Modular Scale](https://www.modularscale.com/)
+///   ratio.
+/// @prop {map} <breakpoint> - [OPTIONAL] Defines a breakpoint at
+///   which the ratio can change. You can nest the new ratio declaration inside
+///   of `<breakpoint>`. You can add as many breakpoints as you want.
+/// @prop {list} scales - List all the Modular Scale entities for which you want to
+///   generate the font-sizes for.
+///
+/// @example scss - Sets the min font-size at `320px` viewport width to `18px`, the max font-size at `1420px` viewport width to `22px`, the Modular Scale ratio to `1.2` and creates scale entities from `-1` up to `4`.
+///   $FLUIDMS-CONFIG: (
+///       min-font-size: 18px,
+///       max-font-size: 22px,
+///       min-viewport: 320px,
+///       max-viewport: 1420px,
+///       ratio: 1.2,
+///       scales: (
+///           4,
+///           3,
+///           2,
+///           1,
+///           0,
+///           -1,
+///       ),
+///   ) !default;
+///
+/// @example scss - The same config as above, but with a larger ratio from `720px` viewport width upwards.
+///   $FLUIDMS-CONFIG: (
+///       min-font-size: 18px,
+///       max-font-size: 22px,
+///       min-viewport: 320px,
+///       max-viewport: 1420px,
+///       ratio: 1.2,
+///       720px: (
+///           ratio: 1.3,
+///       ),
+///       scales: (
+///           4,
+///           3,
+///           2,
+///           1,
+///           0,
+///           -1,
+///       ),
+///   ) !default;
+///
+/// @type map
+$FLUIDMS-CONFIG: (
     min-font-size: 16px,
     max-font-size: 24px,
     min-viewport: 480px,

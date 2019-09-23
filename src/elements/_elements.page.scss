@@ -6,19 +6,19 @@
  * Apply fluid typography to the `<html>` element.
  */
 html {
-    font-size: map-get($FLUIDMS-GLOBAL-CONFIG, min-font-size);
+    font-size: map-get($FLUIDMS-CONFIG, min-font-size);
 
-    @media screen and (min-width: map-get($FLUIDMS-GLOBAL-CONFIG, min-viewport)) {
-        font-size: calc(#{map-get($FLUIDMS-GLOBAL-CONFIG, min-font-size)} + (#{fluidms-strip-unit(map-get($FLUIDMS-GLOBAL-CONFIG, max-font-size)) - fluidms-strip-unit(map-get($FLUIDMS-GLOBAL-CONFIG, min-font-size))}) * ((100vw - #{map-get($FLUIDMS-GLOBAL-CONFIG, min-viewport)}) / (#{fluidms-strip-unit(map-get($FLUIDMS-GLOBAL-CONFIG, max-viewport)) - fluidms-strip-unit(map-get($FLUIDMS-GLOBAL-CONFIG, min-viewport))})));
+    @media screen and (min-width: map-get($FLUIDMS-CONFIG, min-viewport)) {
+        font-size: calc(#{map-get($FLUIDMS-CONFIG, min-font-size)} + (#{fluidms-strip-unit(map-get($FLUIDMS-CONFIG, max-font-size)) - fluidms-strip-unit(map-get($FLUIDMS-CONFIG, min-font-size))}) * ((100vw - #{map-get($FLUIDMS-CONFIG, min-viewport)}) / (#{fluidms-strip-unit(map-get($FLUIDMS-CONFIG, max-viewport)) - fluidms-strip-unit(map-get($FLUIDMS-CONFIG, min-viewport))})));
     }
 
-    @media screen and (min-width: map-get($FLUIDMS-GLOBAL-CONFIG, max-viewport)) {
-        font-size: map-get($FLUIDMS-GLOBAL-CONFIG, max-font-size);
+    @media screen and (min-width: map-get($FLUIDMS-CONFIG, max-viewport)) {
+        font-size: map-get($FLUIDMS-CONFIG, max-font-size);
     }
 }
 
 body {
     // Assign the global `line-height` to the `<body>` element, as a `rem` value
     // will not inherit properly on the `<html>` element.
-    line-height: fluidms-line-height(0, map-get($FLUIDMS-GLOBAL-CONFIG, ratio));
+    line-height: fluidms-line-height(0, map-get($FLUIDMS-CONFIG, ratio));
 }

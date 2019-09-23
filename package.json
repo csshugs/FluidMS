@@ -8,7 +8,8 @@
   },
   "scripts": {
     "server": "npx http-server test/",
-    "sass:watch": "npx node-sass test/style.scss test/style.css --watch"
+    "sass:watch": "npx node-sass test/style.scss test/style.css --watch",
+    "sassdoc": "rimraf dist/ && npx sassdoc src -d dist"
   },
   "keywords": [
     "CSS",
@@ -28,6 +29,8 @@
     "@commitlint/config-conventional": "^8.2.0",
     "http-server": "^0.11.1",
     "husky": "^3.0.5",
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.12.0",
+    "rimraf": "^3.0.0",
+    "sassdoc": "^2.7.1"
   }
 }
