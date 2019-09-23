@@ -182,10 +182,10 @@ With Fluid Typography, you basically define a viewport range in which all the fo
 
 #### Defining the viewport range
 
-You can define the range in which the typography is fluid with the `min-viewport` and `max-viewport` entries in the `$FLUIDMS-GLOBAL-CONFIG` Sass map:
+You can define the range in which the typography is fluid with the `min-viewport` and `max-viewport` entries in the `$FLUIDMS-CONFIG` Sass map:
 
 ```scss
-$FLUIDMS-GLOBAL-CONFIG: (
+$FLUIDMS-CONFIG: (
     min-viewport: 480px,
     max-viewport: 1280px,
 ) !default;
@@ -193,10 +193,10 @@ $FLUIDMS-GLOBAL-CONFIG: (
 
 #### Defining the base font-size
 
-This means that on every viewport that’s between `480px` and `1280px` wide, the typography will be fluid. How big the font-size is below and above this range can be defined with the `min-font-size` and `max-font-size` entries in `$FLUIDMS-GLOBAL-CONFIG`:
+This means that on every viewport that’s between `480px` and `1280px` wide, the typography will be fluid. How big the font-size is below and above this range can be defined with the `min-font-size` and `max-font-size` entries in `$FLUIDMS-CONFIG`:
 
 ```scss
-$FLUIDMS-GLOBAL-CONFIG: (
+$FLUIDMS-CONFIG: (
     min-font-size: 16px,
     max-font-size: 24px,
     min-viewport: 480px,
@@ -214,12 +214,12 @@ Below a viewport of `480px`, the font-size will be `16px` and not smaller. Above
 }
 ```
 
-then the minimum and maximum font-size should of course be bigger. How much bigger it is can be defined via the `ratio` entry of the `$FLUIDMS-GLOBAL-CONFIG` Sass map:
+then the minimum and maximum font-size should of course be bigger. How much bigger it is can be defined via the `ratio` entry of the `$FLUIDMS-CONFIG` Sass map:
 
 #### Defining a font-size ratio
 
 ```scss
-$FLUIDMS-GLOBAL-CONFIG: (
+$FLUIDMS-CONFIG: (
     min-font-size: 16px,
     max-font-size: 24px,
     min-viewport: 480px,
@@ -237,7 +237,7 @@ If we use the mixin with `$ms: 2`, this font-size will be again 1.1x bigger than
 What seems like a good ratio on small screens might not be suited on larger screens as the different font-sizes are too similar to each other related to the viewport size. In this case you can optionally change the ratio for different breakpoints:
 
 ```scss
-$FLUIDMS-GLOBAL-CONFIG: (
+$FLUIDMS-CONFIG: (
     min-font-size: 16px,
     max-font-size: 24px,
     min-viewport: 480px,
@@ -253,10 +253,10 @@ Our default ratio is still `1.1`, but above screens of `1024px`, our ratio is in
 
 #### Defining a set of scales
 
-In order to even be able to use different font-sizes, we need to define a set of different font-size entities. For that, we add a `scales` list to the `$FLUIDMS-GLOBAL-CONFIG` map.
+In order to even be able to use different font-sizes, we need to define a set of different font-size entities. For that, we add a `scales` list to the `$FLUIDMS-CONFIG` map.
 
 ```scss
-$FLUIDMS-GLOBAL-CONFIG: (
+$FLUIDMS-CONFIG: (
     min-font-size: 16px,
     max-font-size: 24px,
     min-viewport: 480px,

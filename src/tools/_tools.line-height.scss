@@ -2,8 +2,23 @@
 //     #LINE-HEIGHT
 // \*------------------------------------*/
 
-// Helper function to calculate a `rem`-unit line-height based on a given
-// font-size scale, the font-size ratio and the `$FLUIDMS-GLOBAL-BASELINE`.
+/// Helper function to calculate a `rem`-unit line-height based on a given
+/// Modular Scale entity, the font-size ratio and the
+/// `$FLUIDMS-GLOBAL-BASELINE`.
+///
+/// @access private
+///
+/// @param {integer} $scale - Choose a scale value that is defined under
+///   `scales` in `$FLUIDMS-CONFIG`.
+/// @param {number} $ratio - The Modular Scale ratio.
+///
+/// @example scss
+///     .foo {
+///         line-height: fluidms-line-height(3, 1.25);
+///     }
+///
+/// @return {length (in `rem`)} Outputs a `rem` value that is a multiple of
+///   our `$FLUIDMS-GLOBAL-BASELINE`.
 @function fluidms-line-height($scale, $ratio) {
     // Calculate the default line-height (in `rem`).
     $_default-line-height: (fluidms-pow($ratio, $scale)) * $FLUIDMS-GLOBAL-LINE-HEIGHT;
