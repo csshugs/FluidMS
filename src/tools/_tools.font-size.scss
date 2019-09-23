@@ -2,6 +2,57 @@
 //     #FONT-SIZE
 // \*------------------------------------*/
 
+/// Generates a font-size declaration and (optionally) an equivalent
+/// line-height.
+///
+/// @param {number | length } $ms [0] - Determine the font-size by using a value
+///   of the modular scale.
+/// @param {number | string} $line-height [auto] - By default, the line-height
+///   will be automatically calculated, so it sits in the vertical grid. You
+///   can override that with a custom value. Allowed keywords are `"normal"`,
+///   `"inherit"`, `"none"` and `"false"`.
+/// @param {number} $line-height-modifier [false] - Increase and decrease the
+///   generated line-height in increments.
+/// @param {boolean} $important [false] - Output the generated declarations with
+///   an `!important`.
+///
+/// @example scss - Default mixin usage with Modular Scale entity value (unitless integer)
+///     .foo {
+///         @include fluidms-font-size(
+///             $ms: 4
+///         );
+///     }
+///
+/// @example scss - Assign a custom line-height
+///     .foo {
+///         @include fluidms-font-size(
+///             $line-height: 50px
+///         );
+///     }
+///
+/// @example scss - No line-height output
+///     .foo {
+///         @include fluidms-font-size(
+///             $line-height: false
+///         );
+///     }
+///
+/// @example scss - Adjust the line-height in increments (integers)
+///     .foo {
+///         @include fluidms-font-size(
+///             $line-height-modifier: 2
+///         );
+///     }
+///
+/// @example scss - Add `!important` to generated declarations
+///     .foo {
+///         @include fluidms-font-size(
+///             $important: true
+///         );
+///     }
+///
+/// @output The mixin outputs a `font-size` with a CSS `calc` function using CSS
+///   custom properties and an optional `line-height` declaration.
 @mixin fluidms-font-size(
     $ms: 0,
     $line-height: auto,
