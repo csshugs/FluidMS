@@ -10,11 +10,6 @@
     "server": "npx http-server test/",
     "sass:watch": "npx node-sass test/style.scss test/style.css --watch"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "keywords": [
     "CSS",
     "Modular Scale",
