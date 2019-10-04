@@ -21,6 +21,9 @@
     "Custom properties"
   ],
   "author": "Dennis Heibült",
+  "contributors": [
+    "Florian Uhlig"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/csshugs/FluidMS/issues"

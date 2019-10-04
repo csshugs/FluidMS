@@ -14,7 +14,8 @@ Allowed types:
 - **fix**: A bug fix
 - **perf**: A code change that improves performance
 - **refactor**: A code change that neither fixes a bug nor adds a feature
+- **release**: Release-specific code changes
 - **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
 - **test**: Adding missing tests or correcting existing tests
 
-_based on [Angular contribution guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type)_
+_(based on [Angular contribution guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type))_
