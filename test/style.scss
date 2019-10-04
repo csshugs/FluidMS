@@ -1,5 +1,29 @@
 @import "../src/fluidms";
 
+* {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: 1.5rem;
+}
+
+html {
+    background-image: repeating-linear-gradient(
+        to bottom,
+        #ccc,
+        #ccc 1px,
+        transparent 1px,
+        transparent $FLUIDMS-GLOBAL-BASELINE
+    );
+}
+
 h1 {
     @include fluidms-font-size(
         $ms: 6
@@ -36,7 +60,15 @@ h6 {
     );
 }
 
-small {
+.o-wrapper {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.u-small {
     @include fluidms-font-size(
         $ms: -1
     );

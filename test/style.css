@@ -89,6 +89,21 @@ html {
 body {
   line-height: 1.5rem; }
 
+* {
+  margin: 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 1.5rem; }
+
+html {
+  background-image: repeating-linear-gradient(to bottom, #ccc, #ccc 1px, transparent 1px, transparent 0.25rem); }
+
 h1 {
   font-size: calc(var(--ms6-ratio) * 1rem);
   line-height: var(--ms6-line-height); }
@@ -113,7 +128,14 @@ h6 {
   font-size: calc(var(--ms1-ratio) * 1rem);
   line-height: var(--ms1-line-height); }
 
-small {
+.o-wrapper {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem; }
+
+.u-small {
   font-size: calc(var(--ms-1-ratio) * 1rem);
   line-height: var(--ms-1-line-height); }
 
