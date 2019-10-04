@@ -32,6 +32,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/travis-cli": "^8.2.0",
     "husky": "^3.0.5",
     "local-web-server": "^3.0.7",
     "node-sass": "^4.12.0",
