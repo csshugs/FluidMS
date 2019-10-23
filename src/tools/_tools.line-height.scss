@@ -20,15 +20,18 @@
 /// @return {length (in `rem`)} Outputs a `rem` value that is a multiple of
 ///   our `$FLUIDMS-GLOBAL-BASELINE`.
 @function fluidms-line-height($scale, $ratio) {
-    // Calculate the default line-height (in `rem`).
-    $_default-line-height: (fluidms-pow($ratio, $scale)) * ($FLUIDMS-GLOBAL-LINE-HEIGHT / fluidms-pow($FLUIDMS-GLOBAL-LINE-HEIGHT-RATIO, $scale));
-    // Get the “offset” of the vertical grid.
-    $_remainder: $_default-line-height;
-    @while $_remainder >= fluidms-strip-unit($FLUIDMS-GLOBAL-BASELINE) {
-        $_remainder: $_remainder - $FLUIDMS-GLOBAL-BASELINE;
+    $_optimal-line-height: $FLUIDMS-GLOBAL-LINE-HEIGHT;
+    @if $FLUIDMS-GLOBAL-BASELINE {
+        // Calculate the default line-height (in `rem`).
+        $_default-line-height: (fluidms-pow($ratio, $scale)) * ($FLUIDMS-GLOBAL-LINE-HEIGHT / fluidms-pow($FLUIDMS-GLOBAL-LINE-HEIGHT-RATIO, $scale));
+        // Get the “offset” of the vertical grid.
+        $_remainder: $_default-line-height;
+        @while ($_remainder >= fluidms-strip-unit($FLUIDMS-GLOBAL-BASELINE)) {
+            $_remainder: $_remainder - $FLUIDMS-GLOBAL-BASELINE;
+        }
+        // Subtract the “offset” so we stay in the exact vertical grid.
+        $_optimal-line-height: $_default-line-height - $_remainder;
     }
-    // Subtract the “offset” so we stay in the exact vertical grid.
-    $_optimal-line-height: $_default-line-height - $_remainder;
 
     @return $_optimal-line-height;
 }
