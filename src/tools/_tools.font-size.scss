@@ -77,15 +77,22 @@
         font-size: $_font-size $important;
 
         @if ($line-height == auto) {
-            // Calculate the line-height at runtime by using the generated
-            // `--ms<n>-line-height` CSS custom properties.
-            $_line-height: var(--ms#{$font-size}-line-height);
-            // If the line-height is modified, add/subtract that from the
-            // calculated line-height.
-            @if $line-height-modifier {
-                $_line-height: calc(var(--ms#{$font-size}-line-height) + #{$line-height-modifier * $FLUIDMS-GLOBAL-BASELINE});
+            @if $FLUIDMS-GLOBAL-BASELINE {
+                // Calculate the line-height at runtime by using the generated
+                // `--ms<n>-line-height` CSS custom properties.
+                $_line-height: var(--ms#{$font-size}-line-height);
+                // If the line-height is modified, add/subtract that from the
+                // calculated line-height.
+                @if $line-height-modifier {
+                    $_line-height: calc(var(--ms#{$font-size}-line-height) + #{$line-height-modifier * $FLUIDMS-GLOBAL-BASELINE});
+                }
+                line-height: $_line-height $important;
             }
-            line-height: $_line-height $important;
+            @if (not $FLUIDMS-GLOBAL-BASELINE) {
+                @if $line-height-modifier {
+                    @warn "`$line-height-modifier` has no effect when `$FLUIDMS-GLOBAL-BASELINE` is set to `false`.";
+                }
+            }
         } @else {
             line-height: _validateLineHeight($line-height) $important;
         }
@@ -95,16 +102,23 @@
         // Just output the passed in font-size value.
         font-size: $font-size $important;
         @if ($line-height == auto) {
-            // If the font-size is custom, just output the
-            // `$FLUIDMS-GLOBAL-LINE-HEIGHT` as `em` value, so we can use `calc`
-            // with it when a line-height modifier is used.
-            $_line-height: $FLUIDMS-GLOBAL-LINE-HEIGHT * 1em;
-            // If the line-height is modified, add/subtract that from the
-            // calculated line-height.
-            @if $line-height-modifier {
-                $_line-height: calc(#{$_line-height} + #{$line-height-modifier * $FLUIDMS-GLOBAL-BASELINE});
+            @if $FLUIDMS-GLOBAL-BASELINE {
+                // If the font-size is custom, just output the
+                // `$FLUIDMS-GLOBAL-LINE-HEIGHT` as `em` value, so we can use `calc`
+                // with it when a line-height modifier is used.
+                $_line-height: $FLUIDMS-GLOBAL-LINE-HEIGHT * 1em;
+                // If the line-height is modified, add/subtract that from the
+                // calculated line-height.
+                @if $line-height-modifier {
+                    $_line-height: calc(#{$_line-height} + #{$line-height-modifier * $FLUIDMS-GLOBAL-BASELINE});
+                }
+                line-height: $_line-height $important;
             }
-            line-height: $_line-height $important;
+            @if (not $FLUIDMS-GLOBAL-BASELINE) {
+                @if $line-height-modifier {
+                    @warn "`$line-height-modifier` has no effect when `$FLUIDMS-GLOBAL-BASELINE` is set to `false`.";
+                }
+            }
         } @else {
             line-height: _validateLineHeight($line-height) $important;
         }

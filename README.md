@@ -185,6 +185,12 @@ $FLUIDMS-GLOBAL-BASELINE: 0.25rem !default;
 
 `$FLUIDMS-GLOBAL-BASELINE` needs to be defined with a `rem` unit. It has been proven to be a good idea to define a value between `0.1rem` – `0.333rem`.
 
+If your design doesn’t require a global baseline grid, you can also disable it:
+
+```scss
+$FLUIDMS-GLOBAL-BASELINE: false !default;
+```
+
 ### Changing the global line-height
 
 You can define an ideal line-height that is taken into account when calculating the actual line-height. The value you define here is more just a rough direction of what the resulting line-height will be.

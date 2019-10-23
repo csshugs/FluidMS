@@ -14,14 +14,16 @@ p {
     margin-bottom: 1.5rem;
 }
 
-html {
-    background-image: repeating-linear-gradient(
-        to bottom,
-        #ccc,
-        #ccc 1px,
-        transparent 1px,
-        transparent $FLUIDMS-GLOBAL-BASELINE
-    );
+@if ($FLUIDMS-GLOBAL-BASELINE) {
+    html {
+        background-image: repeating-linear-gradient(
+            to bottom,
+            #ccc,
+            #ccc 1px,
+            transparent 1px,
+            transparent $FLUIDMS-GLOBAL-BASELINE
+        );
+    }
 }
 
 h1 {

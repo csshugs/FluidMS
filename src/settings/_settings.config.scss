@@ -9,10 +9,13 @@
 /// Define your baseline grid. Everything sits on this vertical grid. Works best
 /// with smaller values (i.e. smaller than one third of 1rem).
 ///
-/// @type `rem` value
+/// @type `rem` value or `false`
 ///
 /// @example scss - Sets the size of the baseline grid to `0.2rem`
 ///   $FLUIDMS-GLOBAL-BASELINE: 0.2rem !default;
+///
+/// @example scss - Disable the baseline grid
+///   $FLUIDMS-GLOBAL-BASELINE: false !default;
 $FLUIDMS-GLOBAL-BASELINE: 0.25rem !default;
 
 /// Define your optimal line-height (unit-less). The final line-height will be
