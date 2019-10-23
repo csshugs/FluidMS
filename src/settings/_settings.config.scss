@@ -25,6 +25,13 @@ $FLUIDMS-GLOBAL-BASELINE: 0.25rem !default;
 ///   $FLUIDMS-GLOBAL-LINE-HEIGHT: 1.35 !default
 $FLUIDMS-GLOBAL-LINE-HEIGHT: 1.5 !default;
 
+/// Define the ratio with which the line-height is decreased relatively for
+/// larger font-sizes. That is, the calculated line-height value is getting
+/// smaller in ralation to the font-size, the bigger the font-size gets.
+///
+/// @type number
+$FLUIDMS-GLOBAL-LINE-HEIGHT-RATIO: 1 !default;
+
 /// Hold all the relevant settings for Fluid Typography.
 ///
 /// @prop {length (in `px`)} min-font-size [16px] - Defines the font-size at

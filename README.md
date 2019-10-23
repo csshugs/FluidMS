@@ -193,6 +193,16 @@ You can define an ideal line-height that is taken into account when calculating 
 $FLUIDMS-GLOBAL-LINE-HEIGHT: 1.5 !default;
 ```
 
+### Changing the global line-height ratio
+
+The bigger font-sizes get, the lesser the line-height needs to be in relation to its font-size. Hence, we provide an option to decrease the line-height in proportion to the font-size, the bigger the font-size gets.
+
+```scss
+$FLUIDMS-GLOBAL-LINE-HEIGHT-RATIO: 1 !default;
+```
+
+Don’t get crazy with this variable’s value! Only nudge the ratio slightly and always test all the possible font-sizes with multiline text.
+
 ### Configure the Fluid Typography values
 
 With Fluid Typography, you basically define a viewport range in which all the font-sizes are fluid, i.e. the font-sizes are sized according to the viewport size — if the viewport size is small, the font-size is too. If the viewport size is large, so is the font-size.
