@@ -26,7 +26,7 @@
         $_default-line-height: (fluidms-pow($ratio, $scale)) * ($FLUIDMS-GLOBAL-LINE-HEIGHT / fluidms-pow($FLUIDMS-GLOBAL-LINE-HEIGHT-RATIO, $scale));
         // Get the “offset” of the vertical grid.
         $_remainder: $_default-line-height;
-        @while $_remainder >= fluidms-strip-unit($FLUIDMS-GLOBAL-BASELINE) {
+        @while ($_remainder >= fluidms-strip-unit($FLUIDMS-GLOBAL-BASELINE)) {
             $_remainder: $_remainder - $FLUIDMS-GLOBAL-BASELINE;
         }
         // Subtract the “offset” so we stay in the exact vertical grid.
