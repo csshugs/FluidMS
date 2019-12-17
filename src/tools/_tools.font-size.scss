@@ -90,7 +90,7 @@
             }
             @if (not $FLUIDMS-GLOBAL-BASELINE) {
                 @if $line-height-modifier {
-                    @warn "`$line-height-modifier` has no effect when `$FLUIDMS-GLOBAL-BASELINE` is set to `false`.";
+                    @warn _lineHeightModifierHasNoEffect();
                 }
             }
         } @else {
@@ -116,7 +116,7 @@
             }
             @if (not $FLUIDMS-GLOBAL-BASELINE) {
                 @if $line-height-modifier {
-                    @warn "`$line-height-modifier` has no effect when `$FLUIDMS-GLOBAL-BASELINE` is set to `false`.";
+                    @warn _lineHeightModifierHasNoEffect();
                 }
             }
         } @else {
@@ -124,6 +124,10 @@
         }
     }
 
+}
+
+@function _lineHeightModifierHasNoEffect() {
+    @return "`$line-height-modifier` has no effect when `$FLUIDMS-GLOBAL-BASELINE` is set to `false`.";
 }
 
 @function _validateLineHeight($value) {
