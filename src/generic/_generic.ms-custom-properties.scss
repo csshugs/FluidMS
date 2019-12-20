@@ -17,8 +17,13 @@
             @if (unit($key) == "px") {
                 @media screen and (min-width: $key) {
                     @each $scale in map-get($FLUIDMS-CONFIG, scales) {
-                        --ms#{$scale}-ratio:       #{fluidms-pow(map-get($value, ratio), $scale)};
-                        --ms#{$scale}-line-height: #{fluidms-line-height($scale, map-get($value, ratio))};
+                        // Exclude all the scales that are smaller than the
+                        // base font-size, so that small type will not get
+                        // smaller on larger viewports (#21).
+                        @if not (str-index(#{$scale}, "-")) {
+                            --ms#{$scale}-ratio:       #{fluidms-pow(map-get($value, ratio), $scale)};
+                            --ms#{$scale}-line-height: #{fluidms-line-height($scale, map-get($value, ratio))};
+                        }
                     }
                 }
             }
