@@ -87,8 +87,7 @@
                     $_line-height: calc(var(--ms#{$font-size}-line-height) + #{$line-height-modifier * $FLUIDMS-GLOBAL-BASELINE});
                 }
                 line-height: $_line-height $important;
-            }
-            @if (not $FLUIDMS-GLOBAL-BASELINE) {
+            } @else {
                 @if $line-height-modifier {
                     @warn _lineHeightModifierHasNoEffect();
                 }
@@ -113,8 +112,7 @@
                     $_line-height: calc(#{$_line-height} + #{$line-height-modifier * $FLUIDMS-GLOBAL-BASELINE});
                 }
                 line-height: $_line-height $important;
-            }
-            @if (not $FLUIDMS-GLOBAL-BASELINE) {
+            } @else {
                 @if $line-height-modifier {
                     @warn _lineHeightModifierHasNoEffect();
                 }
