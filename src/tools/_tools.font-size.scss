@@ -5,7 +5,7 @@
 /// Generates a font-size declaration and (optionally) an equivalent
 /// line-height.
 ///
-/// @param {number | length } $ms [0] - Determine the font-size by using a value
+/// @param {number | length } $font-size [0] - Determine the font-size by using a value
 ///   of the modular scale.
 /// @param {number | string} $line-height [auto] - By default, the line-height
 ///   will be automatically calculated, so it sits in the vertical grid. You
@@ -16,10 +16,10 @@
 /// @param {boolean} $important [false] - Output the generated declarations with
 ///   an `!important`.
 ///
-/// @example scss - Default mixin usage with Modular Scale entity value (unitless integer)
+/// @example scss - Default mixin usage with Modular Scale entity value via the `ms()` function
 ///     .foo {
 ///         @include fluidms-font-size(
-///             $ms: 4
+///             $font-size: ms(4)
 ///         );
 ///     }
 ///
