@@ -132,7 +132,7 @@
     @if ($value == "none" or $value == false) {
         // Avoid CSS output (conditional declaration).
         @return null;
-    } @elseif (type-of($value) == number or $value == "inherit" or $value == "normal") {
+    } @else if (type-of($value) == number or $value == "inherit" or $value == "normal") {
         @return $value;
     } @else {
         @error "`#{$value}` is not a valid value for `$line-height`.";
