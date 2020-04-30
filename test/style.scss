@@ -1,3 +1,25 @@
+$FLUIDMS-CONFIG: (
+    min-font-size: 12px,
+    max-font-size: 34px,
+    max-viewport: 960px,
+    ratio: 1.1,
+    720px: (
+        ratio: 1.125
+    ),
+    scales: (
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        -1,
+        -2,
+        -3,
+    ),
+) !default;
+
 @import "../src/fluidms";
 
 * {
