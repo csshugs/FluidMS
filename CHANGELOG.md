@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/csshugs/FluidMS/compare/0.1.1...0.2.1) (2020-05-04)
+
+
+### Refactor
+
+* comply with official else-if notation ([41de11a](https://github.com/csshugs/FluidMS/commit/41de11a1e39433e71e175759d9eb0727777883a9))
+
 ## [0.2.0](https://github.com/csshugs/FluidMS/compare/0.1.1...0.2.0) (2020-02-03)
 
 
