@@ -1,6 +1,6 @@
 {
   "name": "fluidms",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A font-size system based on Modular Scale and Fluid Typography built with Sass and CSS custom properties.",
   "repository": {
     "type": "git",

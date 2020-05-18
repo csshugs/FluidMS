@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/csshugs/FluidMS/compare/0.1.1...0.2.2) (2020-05-18)
+
+
+### Features
+
+* make config adjustable ([#27](https://github.com/csshugs/FluidMS/issues/27)) ([7f6681a](https://github.com/csshugs/FluidMS/commit/7f6681a752a1a4f4f80d8b808d32ca942b322767))
+
 ### [0.2.1](https://github.com/csshugs/FluidMS/compare/0.1.1...0.2.1) (2020-05-04)
 
 
