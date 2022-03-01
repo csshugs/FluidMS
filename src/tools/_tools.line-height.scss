@@ -1,3 +1,4 @@
+@use "sass:math";
 // /*------------------------------------*\
 //     #LINE-HEIGHT
 // \*------------------------------------*/
@@ -23,7 +24,7 @@
     $_optimal-line-height: $FLUIDMS-GLOBAL-LINE-HEIGHT;
     @if $FLUIDMS-GLOBAL-BASELINE {
         // Calculate the default line-height (in `rem`).
-        $_default-line-height: (fluidms-pow($ratio, $scale)) * ($FLUIDMS-GLOBAL-LINE-HEIGHT / fluidms-pow($FLUIDMS-GLOBAL-LINE-HEIGHT-RATIO, $scale));
+        $_default-line-height: (fluidms-pow($ratio, $scale)) * math.div($FLUIDMS-GLOBAL-LINE-HEIGHT, fluidms-pow($FLUIDMS-GLOBAL-LINE-HEIGHT-RATIO, $scale));
         // Get the “offset” of the vertical grid.
         $_remainder: $_default-line-height;
         @while ($_remainder >= fluidms-strip-unit($FLUIDMS-GLOBAL-BASELINE)) {

@@ -1,14 +1,14 @@
 // Settings
-@import "src/settings/settings.config";
+@import "settings/settings.config";
 
 // Tools
-@import "src/tools/tools.utils";
-@import "src/tools/tools.ms";
-@import "src/tools/tools.font-size";
-@import "src/tools/tools.line-height";
+@import "tools/tools.utils";
+@import "tools/tools.ms";
+@import "tools/tools.font-size";
+@import "tools/tools.line-height";
 
 // Generic
-@import "src/generic/generic.ms-custom-properties";
+@import "generic/generic.ms-custom-properties";
 
 // Elements
-@import "src/elements/elements.page";
+@import "elements/elements.page";
