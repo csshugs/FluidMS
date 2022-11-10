@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/csshugs/FluidMS#readme",
   "devDependencies": {
-    "@commitlint/cli": "8.2.0",
+    "@commitlint/cli": "8.3.6",
     "@commitlint/config-conventional": "8.2.0",
     "@commitlint/travis-cli": "8.2.0",
     "husky": "3.0.8",
