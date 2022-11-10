@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/csshugs/FluidMS/compare/0.2.2...0.2.3) (2022-11-10)
+
+
+### Bug Fixes
+
+* enable in shadow DOM ([39d07df](https://github.com/csshugs/FluidMS/commit/39d07dfb3baa98df4efa133d79a4db04850feb62))
+
 ### [0.2.2](https://github.com/csshugs/FluidMS/compare/0.1.1...0.2.2) (2020-05-18)
 
 
