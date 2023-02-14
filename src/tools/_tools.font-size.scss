@@ -2,6 +2,12 @@
 //     #FONT-SIZE
 // \*------------------------------------*/
 
+@use "sass:math";
+@use "sass:map";
+@use "../settings/settings.config" as *;
+@use "../tools/tools.ms" as *;
+@use "../tools/tools.line-height" as *;
+
 /// Generates a font-size declaration and (optionally) an equivalent
 /// line-height.
 ///
@@ -71,22 +77,61 @@
 
     // Only execute when `$font-size` is a unitless number.
     @if (type-of($font-size) == number and unitless($font-size)) {
-        // Calculate the font-size at runtime by using the generated
-        // `--ms<n>-ratio` CSS custom properties.
-        $_font-size: calc(var(--ms#{$font-size}-ratio) * 1rem);
-        font-size: $_font-size $important;
+        // Calculate the font-size.
+        font-size: 1rem * (math.pow(map.get($CONFIG, ratio), $font-size)) $important;
+
+        // If multiple ratios are defined for different breakpoints.
+        @each $key, $value in $CONFIG {
+            @if (type-of($key) == number) {
+                @if (unit($key) == "px") {
+                    @media screen and (min-width: $key) {
+                        // Exclude all the scales that are smaller than the
+                        // base font-size, so that small type will not get
+                        // smaller on larger viewports.
+                        @if not (str-index(#{$font-size}, "-")) {
+                            font-size: 1rem * (math.pow(map.get($value, ratio), $font-size)) $important;
+                        }
+                    }
+                }
+            }
+        }
 
         @if ($line-height == auto) {
-            @if $FLUIDMS-GLOBAL-BASELINE {
+            @if $GLOBAL-BASELINE {
                 // Calculate the line-height at runtime by using the generated
                 // `--ms<n>-line-height` CSS custom properties.
-                $_line-height: var(--ms#{$font-size}-line-height);
+                $_line-height: fluidms-line-height($font-size, map.get($CONFIG, ratio));
                 // If the line-height is modified, add/subtract that from the
                 // calculated line-height.
                 @if $line-height-modifier {
-                    $_line-height: calc(var(--ms#{$font-size}-line-height) + #{$line-height-modifier * $FLUIDMS-GLOBAL-BASELINE});
+                    $_line-height: calc((#{fluidms-line-height($font-size, map.get($CONFIG, ratio))}) + #{$line-height-modifier * $GLOBAL-BASELINE});
                 }
                 line-height: $_line-height $important;
+
+                // If multiple ratios are defined for different breakpoints.
+                @each $key, $value in $CONFIG {
+                    @if (type-of($key) == number) {
+                        @if (unit($key) == "px") {
+                            @media screen and (min-width: $key) {
+                                // Exclude all the scales that are smaller than the
+                                // base font-size, so that small type will not get
+                                // smaller on larger viewports.
+                                @if not (str-index(#{$font-size}, "-")) {
+                                    // Calculate the line-height at runtime by using the generated
+                                    // `--ms<n>-line-height` CSS custom properties.
+                                    $_line-height: fluidms-line-height($font-size, map.get($value, ratio));
+                                    // If the line-height is modified, add/subtract that from the
+                                    // calculated line-height.
+                                    @if $line-height-modifier {
+                                        $_line-height: calc((#{fluidms-line-height($font-size, map.get($value, ratio))}) + #{$line-height-modifier * $GLOBAL-BASELINE});
+                                    }
+                                    line-height: $_line-height $important;
+                                }
+                            }
+                        }
+                    }
+                }
+
             } @else {
                 @if $line-height-modifier {
                     @warn _lineHeightModifierHasNoEffect();
@@ -101,15 +146,15 @@
         // Just output the passed in font-size value.
         font-size: $font-size $important;
         @if ($line-height == auto) {
-            @if $FLUIDMS-GLOBAL-BASELINE {
+            @if $GLOBAL-BASELINE {
                 // If the font-size is custom, just output the
-                // `$FLUIDMS-GLOBAL-LINE-HEIGHT` as `em` value, so we can use `calc`
+                // `$GLOBAL-LINE-HEIGHT` as `em` value, so we can use `calc`
                 // with it when a line-height modifier is used.
-                $_line-height: $FLUIDMS-GLOBAL-LINE-HEIGHT * 1em;
+                $_line-height: $GLOBAL-LINE-HEIGHT * 1em;
                 // If the line-height is modified, add/subtract that from the
                 // calculated line-height.
                 @if $line-height-modifier {
-                    $_line-height: calc(#{$_line-height} + #{$line-height-modifier * $FLUIDMS-GLOBAL-BASELINE});
+                    $_line-height: calc(#{$_line-height} + #{$line-height-modifier * $GLOBAL-BASELINE});
                 }
                 line-height: $_line-height $important;
             } @else {
@@ -125,7 +170,7 @@
 }
 
 @function _lineHeightModifierHasNoEffect() {
-    @return "`$line-height-modifier` has no effect when `$FLUIDMS-GLOBAL-BASELINE` is set to `false`.";
+    @return "`$line-height-modifier` has no effect when `$GLOBAL-BASELINE` is set to `false`.";
 }
 
 @function _validateLineHeight($value) {

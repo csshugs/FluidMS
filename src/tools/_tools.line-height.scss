@@ -2,14 +2,18 @@
 //     #LINE-HEIGHT
 // \*------------------------------------*/
 
+@use "sass:math";
+@use "../settings/settings.config" as *;
+@use "tools.utils" as *;
+
 /// Helper function to calculate a `rem`-unit line-height based on a given
 /// Modular Scale entity, the font-size ratio and the
-/// `$FLUIDMS-GLOBAL-BASELINE`.
+/// `$GLOBAL-BASELINE`.
 ///
 /// @access private
 ///
 /// @param {integer} $scale - Choose a scale value that is defined under
-///   `scales` in `$FLUIDMS-CONFIG`.
+///   `scales` in `$CONFIG`.
 /// @param {number} $ratio - The Modular Scale ratio.
 ///
 /// @example scss
@@ -18,16 +22,16 @@
 ///     }
 ///
 /// @return {length (in `rem`)} Outputs a `rem` value that is a multiple of
-///   our `$FLUIDMS-GLOBAL-BASELINE`.
+///   our `$GLOBAL-BASELINE`.
 @function fluidms-line-height($scale, $ratio) {
-    $_optimal-line-height: $FLUIDMS-GLOBAL-LINE-HEIGHT;
-    @if $FLUIDMS-GLOBAL-BASELINE {
+    $_optimal-line-height: $GLOBAL-LINE-HEIGHT;
+    @if $GLOBAL-BASELINE {
         // Calculate the default line-height (in `rem`).
-        $_default-line-height: (fluidms-pow($ratio, $scale)) * ($FLUIDMS-GLOBAL-LINE-HEIGHT / fluidms-pow($FLUIDMS-GLOBAL-LINE-HEIGHT-RATIO, $scale));
+        $_default-line-height: (math.pow($ratio, $scale)) * (math.div($GLOBAL-LINE-HEIGHT, math.pow($GLOBAL-LINE-HEIGHT-RATIO, $scale)));
         // Get the “offset” of the vertical grid.
         $_remainder: $_default-line-height;
-        @while ($_remainder >= fluidms-strip-unit($FLUIDMS-GLOBAL-BASELINE)) {
-            $_remainder: $_remainder - $FLUIDMS-GLOBAL-BASELINE;
+        @while ($_remainder >= fluidms-strip-unit($GLOBAL-BASELINE)) {
+            $_remainder: $_remainder - $GLOBAL-BASELINE;
         }
         // Subtract the “offset” so we stay in the exact vertical grid.
         $_optimal-line-height: $_default-line-height - $_remainder;

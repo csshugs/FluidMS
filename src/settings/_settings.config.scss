@@ -3,7 +3,7 @@
 // \*------------------------------------*/
 
 // Define all the critical values for fluid typography and modular scale.
-// You can adjust all of these variables by overriding them before importing
+// You can adjust all of these variables by overriding them when loading
 // this file.
 
 /// Define your baseline grid. Everything sits on this vertical grid. Works best
@@ -12,8 +12,8 @@
 /// @type `rem` value or `false`
 ///
 /// @example scss - Disable the baseline grid
-///   $FLUIDMS-GLOBAL-BASELINE: false !default;
-$FLUIDMS-GLOBAL-BASELINE: 0.25rem !default;
+///   $GLOBAL-BASELINE: false !default;
+$GLOBAL-BASELINE: 0.25rem !default;
 
 /// Define your optimal line-height (unit-less). The final line-height will be
 /// calculated to sit exactly on the baseline grid and may be lower than this
@@ -22,19 +22,19 @@ $FLUIDMS-GLOBAL-BASELINE: 0.25rem !default;
 /// @type number
 ///
 /// @example scss - Sets the global line-height to `1.35`
-///   $FLUIDMS-GLOBAL-LINE-HEIGHT: 1.35 !default
-$FLUIDMS-GLOBAL-LINE-HEIGHT: 1.5 !default;
+///   $GLOBAL-LINE-HEIGHT: 1.35 !default
+$GLOBAL-LINE-HEIGHT: 1.5 !default;
 
 /// Define the ratio with which the line-height is decreased relatively for
 /// larger font-sizes. That is, the calculated line-height value is getting
 /// smaller in ralation to the font-size, the bigger the font-size gets.
 ///
 /// @type number
-$FLUIDMS-GLOBAL-LINE-HEIGHT-RATIO: 1 !default;
+$GLOBAL-LINE-HEIGHT-RATIO: 1 !default;
 
 // Initiate empty Sass map, so we can (map-)merge the contents with user
 // adjustments of the map.
-$FLUIDMS-CONFIG: () !default;
+$CONFIG: () !default;
 /// Hold all the relevant settings for Fluid Typography.
 ///
 /// @prop {length (in `px`)} min-font-size [16px] - Defines the font-size at
@@ -54,7 +54,7 @@ $FLUIDMS-CONFIG: () !default;
 ///   generate the font-sizes for.
 ///
 /// @example scss - Sets the min font-size at `320px` viewport width to `18px`, the max font-size at `1420px` viewport width to `22px`, the Modular Scale ratio to `1.2` and creates scale entities from `-1` up to `4`.
-///   $FLUIDMS-CONFIG: (
+///   $CONFIG: (
 ///       min-font-size: 18px,
 ///       max-font-size: 22px,
 ///       min-viewport: 320px,
@@ -71,7 +71,7 @@ $FLUIDMS-CONFIG: () !default;
 ///   ) !default;
 ///
 /// @example scss - The same config as above, but with a larger ratio from `720px` viewport width upwards.
-///   $FLUIDMS-CONFIG: (
+///   $CONFIG: (
 ///       min-font-size: 18px,
 ///       max-font-size: 22px,
 ///       min-viewport: 320px,
@@ -91,7 +91,7 @@ $FLUIDMS-CONFIG: () !default;
 ///   ) !default;
 ///
 /// @type map
-$FLUIDMS-CONFIG: map-merge(
+$CONFIG: map-merge(
     (
         min-font-size: 15px,
         max-font-size: 20px,
@@ -110,5 +110,5 @@ $FLUIDMS-CONFIG: map-merge(
             -2,
         ),
     ),
-    $FLUIDMS-CONFIG
+    $CONFIG
 );

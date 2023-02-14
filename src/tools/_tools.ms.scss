@@ -2,13 +2,16 @@
 //     #MS
 // \*------------------------------------*/
 
+@use "sass:map";
+@use "../settings/settings.config" as *;
+
 // To clearly indicate that a scale value is used, use it with a custom
 // function which just passes the number through.
 @function ms($scale: 0) {
     // Check if `scales` list has `$scale` entry.
-    @if (index(map-get($FLUIDMS-CONFIG, scales), $scale)) {
+    @if (index(map.get($CONFIG, scales), $scale)) {
         @return $scale;
     } @else {
-        @error "`#{$scale}` is no valid entry in the `scales` list in `$FLUIDMS-CONFIG`.";
+        @error "`#{$scale}` is no valid entry in the `scales` list in `$CONFIG`.";
     }
 }

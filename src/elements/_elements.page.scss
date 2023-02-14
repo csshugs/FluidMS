@@ -2,23 +2,20 @@
     #PAGE
 \*------------------------------------*/
 
+@use "sass:map";
+@use "../settings/settings.config" as *;
+@use "../tools/tools.utils" as *;
+@use "../tools/tools.line-height" as *;
+
 /**
  * Apply fluid typography to the `<html>` element.
  */
 html {
-    font-size: map-get($FLUIDMS-CONFIG, min-font-size);
-
-    @media screen and (min-width: map-get($FLUIDMS-CONFIG, min-viewport)) {
-        font-size: calc(#{map-get($FLUIDMS-CONFIG, min-font-size)} + (#{fluidms-strip-unit(map-get($FLUIDMS-CONFIG, max-font-size)) - fluidms-strip-unit(map-get($FLUIDMS-CONFIG, min-font-size))}) * ((100vw - #{map-get($FLUIDMS-CONFIG, min-viewport)}) / (#{fluidms-strip-unit(map-get($FLUIDMS-CONFIG, max-viewport)) - fluidms-strip-unit(map-get($FLUIDMS-CONFIG, min-viewport))})));
-    }
-
-    @media screen and (min-width: map-get($FLUIDMS-CONFIG, max-viewport)) {
-        font-size: map-get($FLUIDMS-CONFIG, max-font-size);
-    }
+    font-size: clamp(map.get($CONFIG, min-font-size), (100 * (fluidms-strip-unit(map.get($CONFIG, max-font-size)) - fluidms-strip-unit(map.get($CONFIG, min-font-size))) / (fluidms-strip-unit(map.get($CONFIG, max-viewport)) - fluidms-strip-unit(map.get($CONFIG, min-viewport))) * 1vw) + (((((fluidms-strip-unit(map.get($CONFIG, min-viewport)) * fluidms-strip-unit(map.get($CONFIG, max-font-size))) - (fluidms-strip-unit(map.get($CONFIG, max-viewport)) * fluidms-strip-unit(map.get($CONFIG, min-font-size)))) / (fluidms-strip-unit(map.get($CONFIG, min-viewport)) - fluidms-strip-unit(map.get($CONFIG, max-viewport)))) / 16) * 1rem), map.get($CONFIG, max-font-size));
 }
 
 body {
     // Assign the global `line-height` to the `<body>` element, as a `rem` value
     // will not inherit properly on the `<html>` element.
-    line-height: fluidms-line-height(0, map-get($FLUIDMS-CONFIG, ratio));
+    line-height: fluidms-line-height(0, map.get($CONFIG, ratio));
 }

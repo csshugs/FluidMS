@@ -1,68 +1,20 @@
 /*------------------------------------*\
-    $MS-CUSTOM-PROPERTIES
-\*------------------------------------*/
-/**
- * Generate the custom properties necessary to calculate the different ratios
- * at runtime in CSS.
- */
-:root {
-  --ms6-ratio:       1.77156;
-  --ms6-line-height: 2.5rem;
-  --ms5-ratio:       1.61051;
-  --ms5-line-height: 2.25rem;
-  --ms4-ratio:       1.4641;
-  --ms4-line-height: 2rem;
-  --ms3-ratio:       1.331;
-  --ms3-line-height: 1.75rem;
-  --ms2-ratio:       1.21;
-  --ms2-line-height: 1.75rem;
-  --ms1-ratio:       1.1;
-  --ms1-line-height: 1.5rem;
-  --ms0-ratio:       1;
-  --ms0-line-height: 1.5rem;
-  --ms-1-ratio:       0.90909;
-  --ms-1-line-height: 1.25rem;
-  --ms-2-ratio:       0.82645;
-  --ms-2-line-height: 1rem;
-  --ms-3-ratio:       0.75131;
-  --ms-3-line-height: 1rem; }
-  @media screen and (min-width: 720px) {
-    :root {
-      --ms6-ratio:       2.02729;
-      --ms6-line-height: 3rem;
-      --ms5-ratio:       1.80203;
-      --ms5-line-height: 2.5rem;
-      --ms4-ratio:       1.60181;
-      --ms4-line-height: 2.25rem;
-      --ms3-ratio:       1.42383;
-      --ms3-line-height: 2rem;
-      --ms2-ratio:       1.26562;
-      --ms2-line-height: 1.75rem;
-      --ms1-ratio:       1.125;
-      --ms1-line-height: 1.5rem;
-      --ms0-ratio:       1;
-      --ms0-line-height: 1.5rem; } }
-
-/*------------------------------------*\
     #PAGE
 \*------------------------------------*/
 /**
  * Apply fluid typography to the `<html>` element.
  */
 html {
-  font-size: 12px; }
-  @media screen and (min-width: 480px) {
-    html {
-      font-size: calc(12px + (22) * ((100vw - 480px) / (480))); } }
-  @media screen and (min-width: 960px) {
-    html {
-      font-size: 34px; } }
+  font-size: clamp(12px, 4.5833333333vw - 0.625rem, 34px);
+}
 
 body {
-  line-height: 1.5rem; }
+  line-height: 1.5rem;
+}
 
 * {
-  margin: 0; }
+  margin: 0;
+}
 
 h1,
 h2,
@@ -71,50 +23,122 @@ h4,
 h5,
 h6,
 p {
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1.5rem;
+}
 
 html {
-  background-image: repeating-linear-gradient(to bottom, #ccc, #ccc 1px, transparent 1px, transparent 0.25rem); }
+  background-image: repeating-linear-gradient(to bottom, #ccc, #ccc 1px, transparent 1px, transparent 0.25rem);
+}
 
 h1 {
-  font-size: calc(var(--ms6-ratio) * 1rem);
-  line-height: var(--ms6-line-height); }
+  font-size: 1.3400956406rem;
+  line-height: 2rem;
+}
+@media screen and (min-width: 720px) {
+  h1 {
+    font-size: 2.0272865295rem;
+  }
+}
+@media screen and (min-width: 720px) {
+  h1 {
+    line-height: 3rem;
+  }
+}
 
 h2 {
-  font-size: calc(var(--ms5-ratio) * 1rem);
-  line-height: var(--ms5-line-height); }
+  font-size: 1.2762815625rem;
+  line-height: 1.75rem;
+}
+@media screen and (min-width: 720px) {
+  h2 {
+    font-size: 1.8020324707rem;
+  }
+}
+@media screen and (min-width: 720px) {
+  h2 {
+    line-height: 2.5rem;
+  }
+}
 
 h3 {
-  font-size: calc(var(--ms4-ratio) * 1rem);
-  line-height: var(--ms4-line-height); }
+  font-size: 1.21550625rem;
+  line-height: 1.75rem;
+}
+@media screen and (min-width: 720px) {
+  h3 {
+    font-size: 1.6018066406rem;
+  }
+}
+@media screen and (min-width: 720px) {
+  h3 {
+    line-height: 2.25rem;
+  }
+}
 
 h4 {
-  font-size: calc(var(--ms3-ratio) * 1rem);
-  line-height: var(--ms3-line-height); }
+  font-size: 1.157625rem;
+  line-height: 1.5rem;
+}
+@media screen and (min-width: 720px) {
+  h4 {
+    font-size: 1.423828125rem;
+  }
+}
+@media screen and (min-width: 720px) {
+  h4 {
+    line-height: 2rem;
+  }
+}
 
 h5 {
-  font-size: calc(var(--ms2-ratio) * 1rem);
-  line-height: var(--ms2-line-height); }
+  font-size: 1.1025rem;
+  line-height: 1.5rem;
+}
+@media screen and (min-width: 720px) {
+  h5 {
+    font-size: 1.265625rem;
+  }
+}
+@media screen and (min-width: 720px) {
+  h5 {
+    line-height: 1.75rem;
+  }
+}
 
 h6 {
-  font-size: calc(var(--ms1-ratio) * 1rem);
-  line-height: var(--ms1-line-height); }
+  font-size: 1.05rem;
+  line-height: 1.5rem;
+}
+@media screen and (min-width: 720px) {
+  h6 {
+    font-size: 1.125rem;
+  }
+}
+@media screen and (min-width: 720px) {
+  h6 {
+    line-height: 1.5rem;
+  }
+}
 
 .o-wrapper {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 0.75rem;
-  padding-right: 0.75rem; }
+  padding-right: 0.75rem;
+}
 
 .u-small {
-  font-size: calc(var(--ms-1-ratio) * 1rem);
-  line-height: var(--ms-1-line-height); }
-
+  font-size: 0.9523809524rem;
+  line-height: 1.25rem;
+}
 .u-milli {
-  font-size: calc(var(--ms-2-ratio) * 1rem);
-  line-height: var(--ms-2-line-height); }
-
+  font-size: 0.9070294785rem;
+  line-height: 1.25rem;
+}
 .u-micro {
-  font-size: calc(var(--ms-3-ratio) * 1rem);
-  line-height: var(--ms-3-line-height); }
+  font-size: 0.8638375985rem;
+  line-height: 1.25rem;
+}
+
+/*# sourceMappingURL=style.css.map */
