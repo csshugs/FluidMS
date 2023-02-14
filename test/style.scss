@@ -1,26 +1,33 @@
-$FLUIDMS-CONFIG: (
-    min-font-size: 12px,
-    max-font-size: 34px,
-    max-viewport: 960px,
-    ratio: 1.1,
-    720px: (
-        ratio: 1.125
-    ),
-    scales: (
-        6,
-        5,
-        4,
-        3,
-        2,
-        1,
-        0,
-        -1,
-        -2,
-        -3,
-    ),
-) !default;
+@use "../src/settings/settings.config" as * with (
+    $CONFIG: (
+        min-font-size: 12px,
+        max-font-size: 34px,
+        max-viewport: 960px,
+        ratio: 1.05,
+        720px: (
+            ratio: 1.125,
+        ),
+        scales: (
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0,
+            -1,
+            -2,
+            -3,
+        ),
+    )
+);
 
-@import "../src/fluidms";
+@use "../src/tools/tools.font-size" as *;
+@use "../src/tools/tools.line-height" as *;
+@use "../src/tools/tools.ms" as *;
+@use "../src/tools/tools.utils" as *;
+
+@use "../src/elements/elements.page" as *;
 
 * {
     margin: 0;
@@ -36,21 +43,21 @@ p {
     margin-bottom: 1.5rem;
 }
 
-@if ($FLUIDMS-GLOBAL-BASELINE) {
+@if ($GLOBAL-BASELINE) {
     html {
         background-image: repeating-linear-gradient(
             to bottom,
             #ccc,
             #ccc 1px,
             transparent 1px,
-            transparent $FLUIDMS-GLOBAL-BASELINE
+            transparent $GLOBAL-BASELINE
         );
     }
 }
 
 h1 {
     @include fluidms-font-size(
-        $font-size: ms(6)
+        $font-size: ms(6),
     );
 }
 
