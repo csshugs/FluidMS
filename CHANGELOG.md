@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/csshugs/FluidMS/compare/0.2.3...1.0.0) (2023-02-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* FluidMS now uses Dart Sass, which requires the app
+using FluidMS to also use Dart Sass.
+* run `npm install` to update dependencies
+
+### Features
+
+* use native `clamp()` function ([28a2e60](https://github.com/csshugs/FluidMS/commit/28a2e60f888cc1e72216a35e8bbbbce698a27b36))
+
+
+
 ### [0.2.3](https://github.com/csshugs/FluidMS/compare/0.2.2...0.2.3) (2022-11-10)
 
 
